@@ -1,0 +1,706 @@
+{
+	"info": {
+		"_postman_id": "daa3dfd8-37a8-4a74-b968-1a039f475033",
+		"name": "MgsServices_Sample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api/Admin",
+			"item": [
+				{
+					"name": "/api/Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Admin",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Admin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Admin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Admin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiJlNjYyYWYyMDAwYzNhMWQzMGUyNjhlNjYyYWYxMGQ5ZjQxYTE2ZDA3NzY5YTg0MzBlMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJzdHNjYjIiLCJqdGkiOiI5MDNjOGIxYi1mMWMyLTQzMzgtOGQ2Ni1hZGQyY2VjNmU1ZDAiLCJleHAiOjE2Mjk1NzQ1NzYsImlzcyI6Imh0dHBzOi8vd3d3Lm1pbnR6c2NyZWVuaW5nc2VydmljZXMuY29tIiwiYXVkIjoiaHR0cHM6Ly93d3cubWludHpzY3JlZW5pbmdzZXJ2aWNlcy5jb20ifQ.TD-IkUJ64MJc3jYWBWd2HIWAu4ckZatOJvlCZoKGThs\"\n}"
+						},
+						{
+							"name": "Token expired",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Admin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Admin"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 07 Sep 2021 19:32:48 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "203"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "68b25d6c5a3c4bd6-YUL"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isError\": true,\n    \"responseException\": {\n        \"exceptionMessage\": \"IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/Admin/Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"stsaccount\",\n    \"password\": \"GetPasswordFromMintz\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Admin/Login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Admin",
+								"Login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"in quis\",\n    \"password\": \"ea cupidatat est\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Admin/Login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Admin",
+										"Login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiJlNjYyYWYyMDAwYzNhMWQzMGUyNjhlNjYyYWYxMGQ5ZjQxYTE2ZDA3NzY5YTg0MzBlMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJzdHNjYjIiLCJqdGkiOiI5MDNjOGIxYi1mMWMyLTQzMzgtOGQ2Ni1hZGQyY2VjNmU1ZDAiLCJleHAiOjE2Mjk1NzQ1NzYsImlzcyI6Imh0dHBzOi8vd3d3Lm1pbnR6c2NyZWVuaW5nc2VydmljZXMuY29tIiwiYXVkIjoiaHR0cHM6Ly93d3cubWludHpzY3JlZW5pbmdzZXJ2aWNlcy5jb20ifQ.TD-IkUJ64MJc3jYWBWd2HIWAu4ckZatOJvlCZoKGThs\"\r\n}"
+						},
+						{
+							"name": "Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"stsaccount\",\n    \"password\": \"GetPasswordFromMintz\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Admin/Login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Admin",
+										"Login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 07 Sep 2021 19:47:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "68b2736b4aebca53-YUL"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isError\": true,\n    \"responseException\": {\n        \"exceptionMessage\": \"Login failed!\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "api/Evite",
+			"item": [
+				{
+					"name": "Create Evite",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inviter\": {\r\n        \"clientAccountCode\": \"999990\",\r\n        \"clientName\": \"CompanyName\",\r\n        \"recruiterName\": \"John Doe\",\r\n        \"recruiterEmail\": \"john.doe@yourcompany.com\"\r\n    },\r\n    \"candidate\": {\r\n        \"candidateName\": {\r\n            \"firstName\": \"Fraid\",\r\n            \"middleName\": \"\",\r\n            \"lastName\": \"Dubrois\"\r\n        },\r\n        \"candidateEmail\": \"monpedev@gmail.com\",\r\n        \"phoneNumbers\": [\r\n            {\r\n                \"standNumber\":\r\n                {\r\n                    \"countryCode\": \"1\",\r\n                    \"localNumber\": \"5145876200\"\r\n                },\r\n                \"phoneType\":\"home\"\r\n            }\r\n        ]\r\n    },\r\n    \"request\": {\r\n        \"package\": \"\",\r\n        \"noteToInvestigator\": \"test request\",\r\n        \"noteToCandidate\": \"This is a test.\",\r\n        \"serviceList\":[\"4022\", \"4024\"]\r\n    },\r\n    \"preload\": {\r\n        \"subject\": {\r\n            \"candidate\": {\r\n                \"contactMethod\": {},\r\n                \"personalData\": {\r\n                    \"dob\": \"1989-06-01\",\r\n                    \"age\": 32,\r\n                    \"birthPlace\": \"Beijing\",\r\n                    \"genderCode\": \"M\"\r\n                }\r\n            },\r\n            \"appliedPosition\": \"Sales\"\r\n        },\r\n        \"screening\":[\r\n            {\r\n                \"screeningType\":\"education\",\r\n                \"clientRef\":\"REC20210010\",\r\n                \"searchEducation\":{\r\n                    \"schoolName\":\"University de Montreal\",\r\n                    \"degreeName\":\"Master\",\r\n                    \"major\":\"Marketing\"\r\n                }\r\n            },\r\n            {\r\n                \"screeningType\":\"education\",\r\n                \"clientRef\":\"REC20210020\",\r\n                \"searchEducation\":{\r\n                    \"schoolName\":\"Toronto University\",\r\n                    \"degreeName\":\"Bac\",\r\n                    \"major\":\"Eclomics\"\r\n                }\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Evite",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Evite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"eviteNumber\": \"\",\r\n  \"statusCode\": \"\",\r\n  \"candidateFN\": \"\",\r\n  \"candidateLN\": \"\",\r\n  \"candidateEmail\": \"\",\r\n  \"loadMoreKey\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Evite/Query",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Evite",
+								"Query"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"eviteNumber\": \"\",\r\n  \"statusCode\": \"\",\r\n  \"candidateFN\": \"\",\r\n  \"candidateLN\": \"\",\r\n  \"candidateEmail\": \"\",\r\n  \"loadMoreKey\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Evite/Query",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Evite",
+										"Query"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "5298"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Jul 2021 19:13:23 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"inviteNumber\": \"5281258672\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"Perm PT\",\n            \"candidateLastName\": \"Test cand\",\n            \"candidateEmailAddress\": \"testperm@noemail.com\",\n            \"statusCode\": \"I\",\n            \"requestDate\": \"2021-07-09T03:38:04.1816579\",\n            \"edpNumber\": null,\n            \"phoneNumber\": \"5142341234\",\n            \"requestorName\": \"HAYLEY ARNOTT\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        },\n        {\n            \"inviteNumber\": \"5281258149\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"Perm PT\",\n            \"candidateLastName\": \"Test cand\",\n            \"candidateEmailAddress\": \"testperm@noemail.com\",\n            \"statusCode\": \"I\",\n            \"requestDate\": \"2021-07-09T03:04:20.2486736\",\n            \"edpNumber\": null,\n            \"phoneNumber\": \"5142341234\",\n            \"requestorName\": \"HAYLEY ARNOTT\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        },\n        {\n            \"inviteNumber\": \"5281249258\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"Perm PT\",\n            \"candidateLastName\": \"Test cand\",\n            \"candidateEmailAddress\": \"testperm@noemail.com\",\n            \"statusCode\": \"I\",\n            \"requestDate\": \"2021-07-09T02:15:09.6560206\",\n            \"edpNumber\": null,\n            \"phoneNumber\": \"5142341234\",\n            \"requestorName\": \"HAYLEY ARNOTT\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        },\n        {\n            \"inviteNumber\": \"5280141021\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"Test\",\n            \"candidateLastName\": \"Candidate 1\",\n            \"candidateEmailAddress\": \"test@noemail.com\",\n            \"statusCode\": \"I\",\n            \"requestDate\": \"2021-07-05T16:51:25.6718441\",\n            \"edpNumber\": null,\n            \"phoneNumber\": \"5142341234\",\n            \"requestorName\": \"HAYLEY ARNOTT\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        },\n        {\n            \"inviteNumber\": \"5280140498\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"BC Test 1\",\n            \"candidateLastName\": \"next stage\",\n            \"candidateEmailAddress\": \"bctest@noemail.com\",\n            \"statusCode\": \"S\",\n            \"requestDate\": \"2021-07-05T16:35:37.895011\",\n            \"edpNumber\": \"EM20211870002  \",\n            \"phoneNumber\": \"\",\n            \"requestorName\": \"TALYA CHRISTBASON\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        },\n        {\n            \"inviteNumber\": \"5280139975\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"BC Test 1\",\n            \"candidateLastName\": \"next stage\",\n            \"candidateEmailAddress\": \"bctest@noemail.com\",\n            \"statusCode\": \"I\",\n            \"requestDate\": \"2021-07-05T16:13:37.0526864\",\n            \"edpNumber\": null,\n            \"phoneNumber\": \"\",\n            \"requestorName\": \"TALYA CHRISTBASON\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        },\n        {\n            \"inviteNumber\": \"5279522312\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"Outlook test\",\n            \"candidateLastName\": \"365\",\n            \"candidateEmailAddress\": \"outlooktest@noemail.com\",\n            \"statusCode\": \"S\",\n            \"requestDate\": \"2021-06-23T14:20:34.76858\",\n            \"edpNumber\": \"EM20211750009  \",\n            \"phoneNumber\": \"\",\n            \"requestorName\": \"ANDREW MATHEWS\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        },\n        {\n            \"inviteNumber\": \"5279521789\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"Outlook test\",\n            \"candidateLastName\": \"365\",\n            \"candidateEmailAddress\": \"outlooktest@noemail.com\",\n            \"statusCode\": \"S\",\n            \"requestDate\": \"2021-06-23T13:41:58.4384993\",\n            \"edpNumber\": \"EM20211750010  \",\n            \"phoneNumber\": \"\",\n            \"requestorName\": \"ANDREW MATHEWS\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        },\n        {\n            \"inviteNumber\": \"5279521266\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"Outlook test\",\n            \"candidateLastName\": \"365\",\n            \"candidateEmailAddress\": \"outlooktest@noemail.com\",\n            \"statusCode\": \"S\",\n            \"requestDate\": \"2021-06-23T12:50:05.742023\",\n            \"edpNumber\": \"EM20211750011  \",\n            \"phoneNumber\": \"\",\n            \"requestorName\": \"ANDREW MATHEWS\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        },\n        {\n            \"inviteNumber\": \"5279520743\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"Outlook test\",\n            \"candidateLastName\": \"365\",\n            \"candidateEmailAddress\": \"outlooktest@noemail.com\",\n            \"statusCode\": \"S\",\n            \"requestDate\": \"2021-06-23T12:08:58.8863139\",\n            \"edpNumber\": \"EM20211750012  \",\n            \"phoneNumber\": \"\",\n            \"requestorName\": \"ANDREW MATHEWS\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        },\n        {\n            \"inviteNumber\": \"5279514990\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"Thomas\",\n            \"candidateLastName\": \"Dubrois\",\n            \"candidateEmailAddress\": \"monpedev@gmail.com\",\n            \"statusCode\": \"E\",\n            \"requestDate\": \"2021-06-22T13:34:56.9731444\",\n            \"edpNumber\": null,\n            \"phoneNumber\": null,\n            \"requestorName\": \"STS  REQUESTOR\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        },\n        {\n            \"inviteNumber\": \"5279514467\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"Thomas\",\n            \"candidateLastName\": \"Dubrois\",\n            \"candidateEmailAddress\": \"monpedev@gmail.com\",\n            \"statusCode\": \"E\",\n            \"requestDate\": \"2021-06-22T13:31:30.3841529\",\n            \"edpNumber\": null,\n            \"phoneNumber\": null,\n            \"requestorName\": \"STS  REQUESTOR\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        },\n        {\n            \"inviteNumber\": \"5279513944\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"Thomas\",\n            \"candidateLastName\": \"Dubrois\",\n            \"candidateEmailAddress\": \"monpedev@gmail.com\",\n            \"statusCode\": \"E\",\n            \"requestDate\": \"2021-06-22T13:23:58.3565425\",\n            \"edpNumber\": null,\n            \"phoneNumber\": null,\n            \"requestorName\": \"STS  REQUESTOR\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        },\n        {\n            \"inviteNumber\": \"5279512375\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"Thomas Patrick\",\n            \"candidateLastName\": \"Kelly\",\n            \"candidateEmailAddress\": \"monpedev+testbci@gmail.com\",\n            \"statusCode\": \"I\",\n            \"requestDate\": \"2021-06-22T12:30:53.2828052\",\n            \"edpNumber\": null,\n            \"phoneNumber\": \"\",\n            \"requestorName\": \"DEFAULT REQUESTOR\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        },\n        {\n            \"inviteNumber\": \"5276297494\",\n            \"clientAccountCode\": \"971654\",\n            \"candidateFirstName\": \"Thomas Patrick\",\n            \"candidateLastName\": \"Kelly\",\n            \"candidateEmailAddress\": \"monpedev+testbci@gmail.com\",\n            \"statusCode\": \"I\",\n            \"requestDate\": \"2021-03-10T02:42:04.474263\",\n            \"edpNumber\": null,\n            \"phoneNumber\": \"\",\n            \"requestorName\": \"DEFAULT REQUESTOR\",\n            \"caseNoteID\": null,\n            \"acknowledgementDate\": null\n        }\n    ],\n    \"loadMore\": false,\n    \"loadMoreKey\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get request status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Evite/5280140498/Status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Evite",
+								"5280140498",
+								"Status"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Evite/5280140498/Status",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Evite",
+										"5280140498",
+										"Status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "1559"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Jul 2021 21:29:08 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"GET Request successful.\",\n    \"result\": {\n        \"caseNumber\": \"EM20211870002  \",\n        \"eviteNumber\": \"5280140498\",\n        \"clientReferenceCode\": null,\n        \"status\": {\n            \"key\": null,\n            \"value\": \"BACKGROUND_CHECK_STATUS_OVERALL_INPROGRESS\",\n            \"keyLable\": null,\n            \"valueText\": null\n        },\n        \"caseUrl\": \"https://test.mintzscreeningservices.com/echeck/Cases/CaseInformation/EM20211870002  \",\n        \"statusDate\": \"0001-01-01T00:00:00\",\n        \"searchResultList\": [\n            {\n                \"searchId\": 314299,\n                \"searchType\": \"criminal/cpic\",\n                \"resultCode\": \"[CL] CLEAR\",\n                \"statusCode\": \"C\",\n                \"serviceCode\": \"4022\",\n                \"referenceId\": \"National_Criminal_Check\",\n                \"title\": \"\",\n                \"elementReport\": \"\",\n                \"elementReportDate\": \"2021-07-06T08:53:07.677\"\n            },\n            {\n                \"searchId\": 314302,\n                \"searchType\": \"education\",\n                \"resultCode\": \"[CP] COMPLETE\",\n                \"statusCode\": \"C\",\n                \"serviceCode\": null,\n                \"referenceId\": null,\n                \"title\": \"GED TESTING OFFICE\",\n                \"elementReport\": \"\",\n                \"elementReportDate\": \"2021-07-06T08:53:41.457\"\n            },\n            {\n                \"searchId\": 314301,\n                \"searchType\": \"international\",\n                \"resultCode\": \"[WR] WARNING\",\n                \"statusCode\": \"C\",\n                \"serviceCode\": \"4041\",\n                \"referenceId\": \"International_Security\",\n                \"title\": \"\",\n                \"elementReport\": \"\",\n                \"elementReportDate\": \"2021-07-06T08:54:27.513\"\n            }\n        ],\n        \"caseNoteList\": []\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "api/Case",
+			"item": [
+				{
+					"name": "CaseList",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"edpNumber\": \"\",\r\n  \"firstName\": \"\",\r\n  \"lastName\": \"\",\r\n  \"clientAccountCode\": \"\",\r\n  \"clientReferenceNumber\": \"\",\r\n  \"clientBranchNumber\": \"\",\r\n  \"requestorID\": 0,\r\n  \"requestDateFrom\": \"2020-08-01T13:07:24.252Z\",\r\n  \"requestDateTo\": \"2021-08-19T13:07:24.252Z\",\r\n  \"caseStatus\": \"\",\r\n  \"loadMoreKey\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Case/Query",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Case",
+								"Query"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"edpNumber\": \"\",\r\n  \"firstName\": \"\",\r\n  \"lastName\": \"\",\r\n  \"clientAccountCode\": \"\",\r\n  \"clientReferenceNumber\": \"\",\r\n  \"clientBranchNumber\": \"\",\r\n  \"requestorID\": 0,\r\n  \"requestDateFrom\": \"2020-08-01T13:07:24.252Z\",\r\n  \"requestDateTo\": \"2021-08-19T13:07:24.252Z\",\r\n  \"caseStatus\": \"\",\r\n  \"loadMoreKey\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Case/Query",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Case",
+										"Query"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "13853"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Aug 2021 15:54:50 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"caseList\": [\n        {\n            \"edpNumber\": \"EM20212080002  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"BRYAN ADAMS\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-27T09:06:07.997\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212080001  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"LAUREN HILL\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-27T09:02:58.627\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212070018  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"AMAZON PRIME\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-26T18:11:45.68\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212070017  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"ROBO COP\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-26T18:08:05.07\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212070016  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"DILJIT DOSANJH\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-26T18:03:40.13\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212070015  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"JASS MANAK\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-26T17:58:29.96\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212070014  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"GIPPY GREWAL\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-26T17:52:51.31\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212050003  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"GURU RANDHAWA\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-24T02:37:59.367\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212050002  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"SUMMER OLYMPICS\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-24T02:29:46.203\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212050001  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"AMAZON PRIME\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-24T02:24:56.983\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212040006  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"ROBO COP\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-23T23:28:31.743\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212040005  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"SHARRY MANN\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-23T17:41:13.657\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212040004  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"DILJIT DOSANJH\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-23T17:32:57.3\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212040003  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"JASS MANAK\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-23T17:27:03.877\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212040002  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"AMRINDER GILL\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-23T17:18:58.177\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20212020016  \",\n            \"clientReferenceNumber\": \"2021-001GE\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"DEFAULT REQUESTOR\",\n            \"candidateName\": \"THOMAS PATRICK KELLY\",\n            \"clientRequestorID\": 134674,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-21T11:43:58.65\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"Z\"\n        },\n        {\n            \"edpNumber\": \"EM20212020015  \",\n            \"clientReferenceNumber\": \"2021-001GE\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"DEFAULT REQUESTOR\",\n            \"candidateName\": \"THOMAS PATRICK KELLY\",\n            \"clientRequestorID\": 134674,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-21T11:39:10.85\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"Z\"\n        },\n        {\n            \"edpNumber\": \"EM20212020014  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"TALYA CHRISTBASON\",\n            \"candidateName\": \"BC TEST 1 NEXT STAGE\",\n            \"clientRequestorID\": 138810,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-21T11:30:50.517\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"Z\"\n        },\n        {\n            \"edpNumber\": \"EM20212020013  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"HAYLEY ARNOTT\",\n            \"candidateName\": \"TEST CANDIDATE 1\",\n            \"clientRequestorID\": 138811,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-21T11:23:20.153\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"Z\"\n        },\n        {\n            \"edpNumber\": \"EM20212020012  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"HAYLEY ARNOTT\",\n            \"candidateName\": \"PERM PT TEST CAND\",\n            \"clientRequestorID\": 138811,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-21T11:12:05.637\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"Z\"\n        },\n        {\n            \"edpNumber\": \"EM20212020011  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"HAYLEY ARNOTT\",\n            \"candidateName\": \"PERM PT TEST CAND\",\n            \"clientRequestorID\": 138811,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-21T11:03:02.637\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"Z\"\n        },\n        {\n            \"edpNumber\": \"EM20212020010  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"HAYLEY ARNOTT\",\n            \"candidateName\": \"PERM PT TEST CAND\",\n            \"clientRequestorID\": 138811,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-21T10:43:52.27\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"Z\"\n        },\n        {\n            \"edpNumber\": \"EM20212020008  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"NICHOLAS VERMAAT\",\n            \"candidateName\": \"E2EBCI EE011\",\n            \"clientRequestorID\": 139828,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-21T10:40:53.247\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"Z\"\n        },\n        {\n            \"edpNumber\": \"EM20212020007  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"NICHOLAS VERMAAT\",\n            \"candidateName\": \"RCRT-2-11-0006 RCRT-2-11-0006\",\n            \"clientRequestorID\": 139828,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-21T10:35:49.907\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"Z\"\n        },\n        {\n            \"edpNumber\": \"EM20212020006  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"NICHOLAS VERMAAT\",\n            \"candidateName\": \"RCRT-2-11-0006 RCRT-2-11-0006\",\n            \"clientRequestorID\": 139828,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-21T10:32:18.957\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"Z\"\n        },\n        {\n            \"edpNumber\": \"EM20212020005  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"ANKITA NIMITA1\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-21T10:26:23.8\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"Z\"\n        },\n        {\n            \"edpNumber\": \"EM20212020004  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"ANKITA NIMITA3\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-21T10:23:14.503\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"Z\"\n        },\n        {\n            \"edpNumber\": \"EM20212020003  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"NICHOLAS VERMAAT\",\n            \"candidateName\": \"RCRT-2-11-0006 RCRT-2-11-0006\",\n            \"clientRequestorID\": 139828,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-21T10:18:21.253\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"Z\"\n        },\n        {\n            \"edpNumber\": \"EM20212020002  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"E2EBCI EE012\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-21T10:15:32.373\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"Z\"\n        },\n        {\n            \"edpNumber\": \"EM20211960035  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"APPLE IPHONE\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-15T14:29:06.35\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20211960034  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"ANKITA NIMITA1\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-15T14:24:52.463\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20211960033  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"LOUIS HERBERHOLZ\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-15T14:09:51.107\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20211960032  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"POTATOE HEAD\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-15T14:04:14.173\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20211960031  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"SUKHI KAUR\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-15T13:58:13.11\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20211960029  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"ELIZABETH HERBERHOLZ\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-15T13:43:47.1\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20211960005  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ERIN FREY\",\n            \"candidateName\": \"AARON JOHNSON\",\n            \"clientRequestorID\": 139836,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-15T09:29:30.243\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20211870002  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"TALYA CHRISTBASON\",\n            \"candidateName\": \"BC TEST 1 NEXT STAGE\",\n            \"clientRequestorID\": 138810,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-07-06T08:52:14.49\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20211750012  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ANDREW MATHEWS\",\n            \"candidateName\": \"OUTLOOK TEST 4 365\",\n            \"clientRequestorID\": 138788,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-06-24T11:56:29.987\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20211750011  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ANDREW MATHEWS\",\n            \"candidateName\": \"OUTLOOK TEST 3 365\",\n            \"clientRequestorID\": 138788,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-06-24T11:42:24.647\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20211750010  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ANDREW MATHEWS\",\n            \"candidateName\": \"OUTLOOK TEST 2 365\",\n            \"clientRequestorID\": 138788,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-06-24T11:39:47.88\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        },\n        {\n            \"edpNumber\": \"EM20211750009  \",\n            \"clientReferenceNumber\": \"\",\n            \"clientBranchNumber\": null,\n            \"requestorName\": \"ANDREW MATHEWS\",\n            \"candidateName\": \"OUTLOOK TEST 365\",\n            \"clientRequestorID\": 138788,\n            \"caseDocumentID\": null,\n            \"documentTypeCode\": null,\n            \"cpicNoRecord\": null,\n            \"requestedDate\": \"2021-06-24T11:35:09.73\",\n            \"dateCompleted\": null,\n            \"noteCount\": 0,\n            \"statusCode\": \"C\"\n        }\n    ],\n    \"loadMore\": false,\n    \"loadMoreKey\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Case Note",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Case/EM20212050002/StatusNotes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Case",
+								"EM20212050002",
+								"StatusNotes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create note",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "Case Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Case/EM20212050002",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Case",
+										"EM20212050002"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 01 Sep 2021 21:41:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "6881a9960b064bb9-YUL"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"caseNumber\": \"EM20212050002\",\n    \"eviteNumber\": null,\n    \"clientReferenceCode\": null,\n    \"status\": {\n        \"key\": null,\n        \"value\": \"BACKGROUND_CHECK_STATUS_OVERALL_INPROGRESS\",\n        \"keyLable\": null,\n        \"valueText\": null\n    },\n    \"caseUrl\": \"https://test.mintzscreeningservices.com/echeck/Cases/CaseInformation/EM20212050002\",\n    \"statusDate\": \"0001-01-01T00:00:00\",\n    \"searchResultList\": [\n        {\n            \"searchId\": 315493,\n            \"searchType\": \"criminal/cpic\",\n            \"resultCode\": \"[DC] SELF DECLARATION COMPLETE\",\n            \"statusCode\": \"C\",\n            \"serviceCode\": \"4022\",\n            \"referenceId\": \"National_Criminal_Check_EDU\",\n            \"title\": \"\",\n            \"elementReport\": \"\",\n            \"elementReportDate\": \"2021-07-24T02:30:09.633\"\n        },\n        {\n            \"searchId\": 315494,\n            \"searchType\": \"international\",\n            \"resultCode\": \"[WR] WARNING\",\n            \"statusCode\": \"C\",\n            \"serviceCode\": \"4041\",\n            \"referenceId\": \"International_Security_EDU\",\n            \"title\": \"\",\n            \"elementReport\": \"\",\n            \"elementReportDate\": \"2021-07-24T02:30:22.813\"\n        }\n    ],\n    \"caseNoteList\": []\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	]
+}
