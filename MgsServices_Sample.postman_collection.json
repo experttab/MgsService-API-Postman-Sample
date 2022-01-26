@@ -565,15 +565,22 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/api/Case/EM20212050002/StatusNotes",
+							"raw": "{{baseUrl}}/api/Case/:CaseNumber/StatusNotes",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
 								"Case",
-								"EM20212050002",
+								":CaseNumber",
 								"StatusNotes"
+							],
+							"variable": [
+								{
+									"key": "CaseNumber",
+									"value": null,
+									"description": "The Case EM number. ex: EM20212050002"
+								}
 							]
 						}
 					},
@@ -582,9 +589,36 @@
 				{
 					"name": "Create note",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
-						"url": null
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"senderName\": \"string\",\r\n  \"senderEmail\": \"string\",\r\n  \"note\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Case/:CaseNumber/StatusNotes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Case",
+								":CaseNumber",
+								"StatusNotes"
+							],
+							"variable": [
+								{
+									"key": "CaseNumber",
+									"value": null,
+									"description": "The Case EM number. ex: EM20212050002"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -593,7 +627,23 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "{{baseUrl}}/api/Case/:CaseNumber",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Case",
+								":CaseNumber"
+							],
+							"variable": [
+								{
+									"key": "CaseNumber",
+									"value": null
+								}
+							]
+						}
 					},
 					"response": [
 						{
@@ -662,6 +712,80 @@
 							"body": "{\n    \"caseNumber\": \"EM20212050002\",\n    \"eviteNumber\": null,\n    \"clientReferenceCode\": null,\n    \"status\": {\n        \"key\": null,\n        \"value\": \"BACKGROUND_CHECK_STATUS_OVERALL_INPROGRESS\",\n        \"keyLable\": null,\n        \"valueText\": null\n    },\n    \"caseUrl\": \"https://test.mintzscreeningservices.com/echeck/Cases/CaseInformation/EM20212050002\",\n    \"statusDate\": \"0001-01-01T00:00:00\",\n    \"searchResultList\": [\n        {\n            \"searchId\": 315493,\n            \"searchType\": \"criminal/cpic\",\n            \"resultCode\": \"[DC] SELF DECLARATION COMPLETE\",\n            \"statusCode\": \"C\",\n            \"serviceCode\": \"4022\",\n            \"referenceId\": \"National_Criminal_Check_EDU\",\n            \"title\": \"\",\n            \"elementReport\": \"\",\n            \"elementReportDate\": \"2021-07-24T02:30:09.633\"\n        },\n        {\n            \"searchId\": 315494,\n            \"searchType\": \"international\",\n            \"resultCode\": \"[WR] WARNING\",\n            \"statusCode\": \"C\",\n            \"serviceCode\": \"4041\",\n            \"referenceId\": \"International_Security_EDU\",\n            \"title\": \"\",\n            \"elementReport\": \"\",\n            \"elementReportDate\": \"2021-07-24T02:30:22.813\"\n        }\n    ],\n    \"caseNoteList\": []\n}"
 						}
 					]
+				},
+				{
+					"name": "Get Case status by client reference code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Case/ReferenceCode/{clientreferencecode}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Case",
+								"ReferenceCode",
+								"{clientreferencecode}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Element Report PDF file",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"elementIDs\": [\r\n    323970,\r\n    323971\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Case/ElementReportPDF",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Case",
+								"ElementReportPDF"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download case attachment file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Case/AttachmentFile/:fileID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Case",
+								"AttachmentFile",
+								":fileID"
+							],
+							"variable": [
+								{
+									"key": "fileID",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"auth": {
