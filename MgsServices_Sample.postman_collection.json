@@ -709,7 +709,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"caseNumber\": \"EM20212050002\",\n    \"eviteNumber\": null,\n    \"clientReferenceCode\": null,\n    \"status\": {\n        \"key\": null,\n        \"value\": \"BACKGROUND_CHECK_STATUS_OVERALL_INPROGRESS\",\n        \"keyLable\": null,\n        \"valueText\": null\n    },\n    \"caseUrl\": \"https://test.mintzscreeningservices.com/echeck/Cases/CaseInformation/EM20212050002\",\n    \"statusDate\": \"0001-01-01T00:00:00\",\n    \"searchResultList\": [\n        {\n            \"searchId\": 315493,\n            \"searchType\": \"criminal/cpic\",\n            \"resultCode\": \"[DC] SELF DECLARATION COMPLETE\",\n            \"statusCode\": \"C\",\n            \"serviceCode\": \"4022\",\n            \"referenceId\": \"National_Criminal_Check_EDU\",\n            \"title\": \"\",\n            \"elementReport\": \"\",\n            \"elementReportDate\": \"2021-07-24T02:30:09.633\"\n        },\n        {\n            \"searchId\": 315494,\n            \"searchType\": \"international\",\n            \"resultCode\": \"[WR] WARNING\",\n            \"statusCode\": \"C\",\n            \"serviceCode\": \"4041\",\n            \"referenceId\": \"International_Security_EDU\",\n            \"title\": \"\",\n            \"elementReport\": \"\",\n            \"elementReportDate\": \"2021-07-24T02:30:22.813\"\n        }\n    ],\n    \"caseNoteList\": []\n}"
+							"body": "{\n    \"caseNumber\": \"EM20220620078\",\n    \"eviteNumber\": \"5296329440\",\n    \"clientReferenceCode\": null,\n    \"status\": {\n        \"key\": \"Overall\",\n        \"value\": \"I\",\n        \"keyLable\": null,\n        \"valueText\": \"INPROGRESS\"\n    },\n    \"caseUrl\": \"https://test.mintzscreeningservices.com/echeck/Cases/CaseInformation/EM20220620078\",\n    \"statusDate\": \"2022-03-03T15:21:23.313\",\n    \"searchResultList\": [\n        {\n            \"searchId\": 326982,\n            \"searchType\": \"criminal/cpic\",\n            \"resultCode\": \"[WR] WARNING\",\n            \"statusCode\": \"C\",\n            \"serviceCode\": \"4022\",\n            \"referenceId\": null,\n            \"title\": \"National Criminal\",\n            \"elementReport\": \"<p>test</p>\\n\\n<p>&nbsp;</p>\\n\",\n            \"elementReportDate\": \"2022-03-03T15:25:45.227\"\n        }\n    ],\n    \"caseNoteList\": [\n        {\n            \"noteId\": 197304,\n            \"createdDate\": \"2022-04-05T16:19:57.36\",\n            \"createdBy\": \"John\",\n            \"creatorRoleCode\": \"K\",\n            \"acknowledgedDate\": null,\n            \"content\": \"<p>Note 2.</p>\\n\\n<p>We need the consent file, please upload it.</p>\\n\\n<p>&nbsp;</p>\\n\"\n        },\n        {\n            \"noteId\": 197303,\n            \"createdDate\": \"2022-04-05T16:19:01.65\",\n            \"createdBy\": \"John\",\n            \"creatorRoleCode\": \"K\",\n            \"acknowledgedDate\": null,\n            \"content\": \"<p>test note.</p>\\n\"\n        }\n    ],\n    \"reportList\": [\n        {\n            \"fileID\": 542667,\n            \"fileName\": \"EM20220620078R01.PDF\",\n            \"docType\": \"Report\",\n            \"formatCode\": \"PDF\",\n            \"source\": null,\n            \"base64Content\": null\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -809,6 +809,63 @@
 							"path": [
 								"api",
 								"Case"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Case Report By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Case/:caseNumber/ReportFile/:fileID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Case",
+								":caseNumber",
+								"ReportFile",
+								":fileID"
+							],
+							"variable": [
+								{
+									"key": "caseNumber",
+									"value": "EM20220620078"
+								},
+								{
+									"key": "fileID",
+									"value": "542667"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Case Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Case/:caseNumber/ReportFile",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Case",
+								":caseNumber",
+								"ReportFile"
+							],
+							"variable": [
+								{
+									"key": "caseNumber",
+									"value": "EM20212080002"
+								}
 							]
 						}
 					},
