@@ -815,6 +815,129 @@
 					"response": []
 				},
 				{
+					"name": "Upload attachment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "DocumentType",
+								"value": "A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/MTLUser-Laptop1/Downloads/zi1muu1lqb5.pdf"
+								},
+								{
+									"key": "DocumentType",
+									"value": "A",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Case/:caseNumber/attachment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Case",
+								":caseNumber",
+								"attachment"
+							],
+							"variable": [
+								{
+									"key": "caseNumber",
+									"value": "EM20220770003"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "DocumentType",
+										"value": "A",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/MTLUser-Laptop1/Downloads/zi1muu1lqb5.pdf"
+										},
+										{
+											"key": "DocumentType",
+											"value": "A",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Case/:caseNumber/attachment",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Case",
+										":caseNumber",
+										"attachment"
+									],
+									"variable": [
+										{
+											"key": "caseNumber",
+											"value": "EM20220770003"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Apr 2022 05:21:07 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"fileID\": 195969,\n    \"fileSize\": 23600\n}"
+						}
+					]
+				},
+				{
 					"name": "Download Case Report By ID",
 					"request": {
 						"method": "GET",
